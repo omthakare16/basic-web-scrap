@@ -6,7 +6,7 @@ url="https://realpython.github.io/fake-jobs/"
 page=requests.get(url)
 soup= BeautifulSoup(page.content,"html.parser")
 dictr = {"job-data":[]}
-i=0
+
 
 results = soup.find(id="ResultsContainer")
 
@@ -29,7 +29,7 @@ for job_element in python_job_elements:
     location_element = job_element.find("p", class_="location")
     link_url = job_element.find_all("a")[1]["href"]
     dictr['job-data'].append({"title":title_element.text.strip(),"company":company_element.text.strip(),"location":location_element.text.strip(),"link":f"Apply here: {link_url}"})
-    i=i+1
+   
 
 
 
